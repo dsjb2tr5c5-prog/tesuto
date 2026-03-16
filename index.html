@@ -1,98 +1,156 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>診察の流れ</title>
-  <style>
-    /* 全体のスタイル */
-    @charset "UTF-8";
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      background: #fff;
-       /* ボタンに被らない余白 */
-    }
-    .container { width: 100%; overflow-x: hidden; }
-    .description-image { width: 100%; display: block; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診察の流れ</title>
 
-    /* --- アニメーションパーツ（CSSを土台に再現） --- */
-    .form-editor > div:nth-child(1) { display:none; } 
-    
-    .form-editor > div:nth-child(2) { position: relative; z-index: 900; }
-    /* ここに文字パーツが浮き上がるアニメーションが自動適用されます */
-    .form-editor div:nth-child(2) .col-sm-12:before {
-      content: ""; position: absolute; width: 50.26%; aspect-ratio: 784/262;
-      background: url(https://d27rnpuamwvieu.cloudfront.net/0fZb3xLuJyCmduX8dojK2dwXX/normal) no-repeat center/contain;
-      top: 1%; left: 4.4%; opacity: 0; animation: feedin-Up 0.5s 0.2s forwards;
-    }
-    .form-editor div:nth-child(2) .col-sm-12:after {
-      content: ""; position: absolute; width:78.13%; aspect-ratio: 1172/228;
-      background: url(https://d27rnpuamwvieu.cloudfront.net/0dNeOXtpU4pzMev1MpbOrhgXX/normal) no-repeat center/contain;
-      top: 48.8%; left: 11.1%; opacity: 0; animation: feedin-Up 0.5s 1.1s forwards;
-    }
+<style>
 
-    /* --- 固定ボタンのデザイン --- */
-    .form-editor div:nth-child(6), .form-editor div:nth-child(7) {
-      position: fixed; bottom: 0; z-index: 2000; height: 75px;
-    }
-    /* 戻るボタン */
-    .form-editor div:nth-child(6) { width: 46%; left: 0; }
-    .form-editor div:nth-child(6) a::before {
-      content: ""; display: block; width: 100%; height: 100%;
-      background: url(https://d27rnpuamwvieu.cloudfront.net/08AVsRiBfCzj4uvDkZGjKpgXX/normal) no-repeat center/contain;
-    }
-    /* 予約ボタン */
-    .form-editor div:nth-child(7) { width: 54%; right: 0; }
-    .form-editor div:nth-child(7) a::before {
-      content: ""; display: block; width: 100%; height: 100%;
-      background: url(https://d27rnpuamwvieu.cloudfront.net/0liqkBiyY11Q8sJBH3scOkgXX/normal) no-repeat center/contain;
-    }
+body{
+font-family:sans-serif;
+margin:0;
+background:#fff;
+}
 
-    /* 共通のリンク設定 */
-    .btn-link { display: block; width: 100%; height: 100%; text-indent: -9999px; cursor: pointer; }
+.container{
+width:100%;
+overflow-x:hidden;
+padding-bottom:90px;
+}
 
-    @keyframes feedin-Up {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+.description-image{
+width:100%;
+display:block;
+}
+
+.form-editor > div:nth-child(1){
+display:none;
+}
+
+.form-editor > div:nth-child(2){
+position:relative;
+z-index:900;
+}
+
+.form-editor div:nth-child(2) .col-sm-12:before{
+content:"";
+position:absolute;
+width:50.26%;
+aspect-ratio:784/262;
+background:url(https://d27rnpuamwvieu.cloudfront.net/0fZb3xLuJyCmduX8dojK2dwXX/normal) no-repeat center/contain;
+top:1%;
+left:4.4%;
+opacity:0;
+animation:feedin-Up 0.5s 0.2s forwards;
+}
+
+.form-editor div:nth-child(2) .col-sm-12:after{
+content:"";
+position:absolute;
+width:78.13%;
+aspect-ratio:1172/228;
+background:url(https://d27rnpuamwvieu.cloudfront.net/0dNeOXtpU4pzMev1MpbOrhgXX/normal) no-repeat center/contain;
+top:48.8%;
+left:11.1%;
+opacity:0;
+animation:feedin-Up 0.5s 1.1s forwards;
+}
+
+.form-editor div:nth-child(6),
+.form-editor div:nth-child(7){
+position:fixed;
+bottom:0;
+bottom:env(safe-area-inset-bottom);
+z-index:2000;
+height:75px;
+}
+
+.form-editor div:nth-child(6){
+width:46%;
+left:0;
+}
+
+.form-editor div:nth-child(6) a::before{
+content:"";
+display:block;
+width:100%;
+height:100%;
+background:url(https://d27rnpuamwvieu.cloudfront.net/08AVsRiBfCzj4uvDkZGjKpgXX/normal) no-repeat center/contain;
+}
+
+.form-editor div:nth-child(7){
+width:54%;
+right:0;
+}
+
+.form-editor div:nth-child(7) a::before{
+content:"";
+display:block;
+width:100%;
+height:100%;
+background:url(https://d27rnpuamwvieu.cloudfront.net/0liqkBiyY11Q8sJBH3scOkgXX/normal) no-repeat center/contain;
+}
+
+.btn-link{
+display:block;
+width:100%;
+height:100%;
+text-indent:-9999px;
+cursor:pointer;
+}
+
+@keyframes feedin-Up{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="container">
-  <div class="form-editor">
-    
-    <div></div>
 
-    <div class="form-group">
-      <div class="col-sm-12">
-        <img src="IMG_1227.png" class="description-image">
-      </div>
-    </div>
+<div class="form-editor">
 
-    <div class="form-group">
-      <img src="IMG_1228.png" class="description-image">
-    </div>
+<div></div>
 
-    <div class="form-group">
-      <img src="IMG_1229.jpeg" class="description-image">
-    </div>
+<div class="form-group">
+<div class="col-sm-12">
+<img src="IMG_1227.png" class="description-image">
+</div>
+</div>
 
-    <div class="form-group">
-      <img src="IMG_1230.jpeg" class="description-image">
-    </div>
+<div class="form-group">
+<img src="IMG_1228.png" class="description-image">
+</div>
 
-    <div>
-      <a href="https://line.me/R/ti/p/@468abuod" class="btn-link">戻る</a>
-    </div>
+<div class="form-group">
+<img src="IMG_1229.jpeg" class="description-image">
+</div>
 
-    <div>
-      <a href="https://liff.line.me/2009400645-19jige5V/salon/dateselector/week/2026/3/15?liff_id=2009400645-19jige5V&is=GN9yXejuAI" class="btn-link">予約する</a>
-    </div>
+<div class="form-group">
+<img src="IMG_1230.jpeg" class="description-image">
+</div>
 
-  </div>
+<div>
+<a href="https://line.me/R/ti/p/@468abuod" class="btn-link">戻る</a>
+</div>
+
+<div>
+<a href="https://liff.line.me/2009400645-19jige5V/salon/dateselector/week/2026/3/15?liff_id=2009400645-19jige5V&is=GN9yXejuAI" class="btn-link">予約する</a>
+</div>
+
+</div>
+
 </div>
 
 </body>
-</html>
+</html></html>
