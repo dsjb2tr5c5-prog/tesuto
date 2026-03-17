@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>診察の流れ</title>
   <style>
-    /* 1. 基本設定（隙間をなくす） */
+    /* 1. 基本設定：隙間をなくし、フォントを指定のプロ仕様に変更 */
     * {
       margin: 0;
       padding: 0;
@@ -13,48 +13,68 @@
     }
 
     body {
-      background-color: #ffffff;
-      /* ボタンに被らないように下に余白を作る */
-      padding-bottom: 80px;
+      margin: 0;
+      /* 指定のフォントセットを適用 */
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      background: #ffffff;
+      /* 下ボタンに被らないよう余白を確保 */
+      padding-bottom: 100px;
     }
 
-    /* 2. 画像の設定：縦にきれいに並べる */
+    /* 2. 画像の設定：縦に隙間なく並べる */
     .image-list img {
       width: 100%;
-      display: block; /* 画像の下に隙間を作らない設定 */
+      display: block;
     }
 
-    /* 3. 下の固定ボタン：横に2つ並べる */
-    .bottom-nav {
+    /* 3. 下固定ボタン：影と高さを調整 */
+    .bottom-buttons {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      display: flex; /* 横並びにする設定 */
-      height: 70px; /* ボタンの高さ */
+      display: flex;
+      height: 70px;
       z-index: 100;
+      /* 上に少し影をつけて境界をはっきりさせる */
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
     }
 
+    /* 共通のボタンスタイル */
     .btn {
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: #ffffff;
       font-weight: bold;
-      font-size: 18px;
+      transition: opacity 0.2s;
     }
 
-    /* 左側のボタン（戻る）の色 */
-    .btn-back {
-      flex: 1; /* 幅を均等にする */
-      background-color: #9bc2e6; /* 水色 */
+    .btn:active {
+      opacity: 0.7; /* 押した時に少し色が薄くなる反応 */
     }
 
-    /* 右側のボタン（予約）の色 */
-    .btn-reserve {
-      flex: 1; /* 幅を均等にする */
-      background-color: #4472c4; /* 青色 */
+    /* 戻るボタン：水色（比率2） */
+    .back {
+      flex: 2; 
+      background: #9bc2e6;
+      color: #ffffff; /* 文字色は白が見やすいので白にしています */
+      font-size: 16px;
+    }
+
+    /* 予約ボタン：青色（比率3 / 文字を大きく） */
+    .reserve {
+      flex: 3; 
+      background: #4472c4;
+      color: #ffffff;
+      font-size: 20px; /* 文字を大きく設定 */
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* アイコン用のスタイル */
+    .icon {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
   </style>
 </head>
@@ -67,9 +87,16 @@
     <img src="IMG_1230.jpeg">
   </div>
 
-  <div class="bottom-nav">
-    <a href="https://line.me/R/ti/p/@468abuod" class="btn btn-back">戻る</a>
-      <a href="https://liff.line.me/2009400645-19jige5V/salon/dateselector/week/2026/3/15?liff_id=2009400645-19jige5V&is=GN9yXejuAI" class="btn btn-reserve">予約する</a>
+  <div class="bottom-buttons">
+
+    <a href="https://line.me/R/ti/p/@468abuod" class="btn back">
+      <span class="icon">◀</span>戻る
+    </a>
+
+    <a href="https://liff.line.me/2009400645-19jige5V/salon/dateselector/week/2026/3/15?liff_id=2009400645-19jige5V&is=GN9yXejuAI" class="btn reserve">
+      <span class="icon">📅</span>予約する
+    </a>
+
   </div>
 
 </body>
