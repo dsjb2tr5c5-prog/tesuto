@@ -1,91 +1,92 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>診察の流れ</title>
-  <style>
-    /* 1. 基本設定：隙間をなくし、フォントを指定のプロ仕様に変更 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診察の流れ</title>
 
-    body {
-      margin: 0;
-      /* 指定のフォントセットを適用 */
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-      background: #ffffff;
-      /* 下ボタンに被らないよう余白を確保 */
-      padding-bottom: 100px;
-    }
+<style>
+/* 1. 全体の計算ルールとフォント：ご提示のコードを完全移植 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    /* 2. 画像の設定：縦に隙間なく並べる */
-    .image-list img {
-      width: 100%;
-      display: block;
-    }
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background: #ffffff;
+  /* 下ボタンに被らないよう、余白をしっかり確保 */
+  padding-bottom: 100px;
+}
 
-    /* 3. 下固定ボタン：影と高さを調整 */
-    .bottom-buttons {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      height: 70px;
-      z-index: 100;
-      /* 上に少し影をつけて境界をはっきりさせる */
-      box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
-    }
+/* 2. 画像の設定：縦に隙間なく並べる */
+.page-image {
+  width: 100%;
+  display: block;
+}
 
-    /* 共通のボタンスタイル */
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-weight: bold;
-      transition: opacity 0.2s;
-    }
+/* 3. 下固定ボタンのレイアウト：ご提示のスタイルを完全移植 */
+.bottom-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  /* 上の影で境界をはっきりさせる */
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+  /* ボタンの高さを70pxに固定 */
+  height: 70px;
+  z-index: 1000;
+}
 
-    .btn:active {
-      opacity: 0.7; /* 押した時に少し色が薄くなる反応 */
-    }
+/* 共通のボタンスタイル */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
 
-    /* 戻るボタン：水色（比率2） */
-    .back {
-      flex: 2; 
-      background: #9bc2e6;
-      color: #ffffff; /* 文字色は白が見やすいので白にしています */
-      font-size: 16px;
-    }
+.btn:active {
+  opacity: 0.7; /* タップ時に少し薄くなる反応 */
+}
 
-    /* 予約ボタン：青色（比率3 / 文字を大きく） */
-    .reserve {
-      flex: 3; 
-      background: #4472c4;
-      color: #ffffff;
-      font-size: 20px; /* 文字を大きく設定 */
-      border-left: 1px solid rgba(255,255,255,0.1);
-    }
+/* 戻るボタン：グレー（比率2 / 16px） */
+.back {
+  flex: 2; 
+  background: #cfd8dc;
+  color: #455a64;
+  font-size: 16px;
+}
 
-    /* アイコン用のスタイル */
-    .icon {
-      margin-right: 8px;
-      font-size: 1.2em;
-    }
-  </style>
+/* 予約ボタン：黄色（比率3 / 20px） */
+.reserve {
+  flex: 3; 
+  background: #ffd600;
+  color: #000;
+  font-size: 20px; 
+  border-left: 1px solid rgba(0,0,0,0.05);
+}
+
+/* アイコン用のスタイル */
+.icon {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+</style>
 </head>
+
 <body>
 
-  <div class="image-list">
-    <img src="S__77135885.jpg">
-    <img src="IMG_1228.png">
-    <img src="IMG_1229.jpeg">
-    <img src="IMG_1230.jpeg">
-  </div>
+  <img src="S__77135885.jpg" class="page-image" alt="診察の流れ1">
+  <img src="IMG_1228.png" class="page-image" alt="診察の流れ2">
+  <img src="IMG_1229.jpeg" class="page-image" alt="診察の流れ3">
+  <img src="IMG_1230.jpeg" class="page-image" alt="診察の流れ4">
 
   <div class="bottom-buttons">
 
